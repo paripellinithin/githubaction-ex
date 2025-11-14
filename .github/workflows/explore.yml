@@ -1,0 +1,25 @@
+name: Explore Environment
+
+on:
+  push:
+
+jobs:
+  explore:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Explore system environment
+        run: |
+          echo "==== Operating System ===="
+          uname -a
+
+          echo "==== Installed Languages ===="
+          python3 --version
+          node --version
+          java -version
+
+          echo "==== Environment Variables ===="
+          env
